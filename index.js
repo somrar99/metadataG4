@@ -1,3 +1,6 @@
+// Get the db-credentials (from git-ignored file)
+import dbCreds from './db-credentials.js';
+
 // Get the database driver
 import mysql from 'mysql2/promise';
 
@@ -5,13 +8,7 @@ import mysql from 'mysql2/promise';
 import express from 'express';
 
 // Create the connection to database
-const db = await mysql.createConnection({
-  host: '5.189.183.23',
-  port: '4567',
-  user: 'ENTER YOUR DB USERNAME',
-  password: 'ENTER YOUR DB PASSWORD',
-  database: 'ENTER THE NAME OF THE DATABASE'
-});
+const db = await mysql.createConnection(dbCreds);
 
 // Allow named placeholders in prepared statements
 db.config.namedPlaceholders = true;
