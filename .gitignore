@@ -1,6 +1,13 @@
 db-credentials.js
 node_modules
 
+# Also ignore folders with files (pdf, mp3, jpg, ppt etc in frontend)
+# for example:
+frontend/pdfs
+frontend/music
+frontend/photos
+frontend/powerpoint
+
 *.pdf
 *.log
 *.tmp
