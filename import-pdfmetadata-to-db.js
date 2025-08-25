@@ -39,6 +39,8 @@ for (let pdf of data) {
 
   console.log(`Importerar fil: ${fileName}`);
 
+
+  // INSERT TO DATABASE
   let result = await query(`
     INSERT INTO pdfs (fileName, metadata)
     VALUES(?, ?)
