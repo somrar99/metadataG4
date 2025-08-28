@@ -1,6 +1,6 @@
 [
   {
-    "file": "DSC00042.JPG",
+    "fileName": "DSC00042.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -105,7 +105,7 @@
     "longitude": -0.06539305555555555
   },
   {
-    "file": "DSC00047.JPG",
+    "fileName": "DSC00047.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -210,7 +210,7 @@
     "longitude": -0.06824833333333333
   },
   {
-    "file": "DSC00049.JPG",
+    "fileName": "DSC00049.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -315,7 +315,7 @@
     "longitude": -0.06700166666666667
   },
   {
-    "file": "DSC00052.JPG",
+    "fileName": "DSC00052.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -420,7 +420,7 @@
     "longitude": -0.06641805555555555
   },
   {
-    "file": "DSC00072.JPG",
+    "fileName": "DSC00072.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -525,7 +525,7 @@
     "longitude": -0.0636963888888889
   },
   {
-    "file": "DSC00077.JPG",
+    "fileName": "DSC00077.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -630,7 +630,7 @@
     "longitude": -0.06367305555555555
   },
   {
-    "file": "DSC00085.JPG",
+    "fileName": "DSC00085.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -735,7 +735,7 @@
     "longitude": -0.06500500000000001
   },
   {
-    "file": "DSC00117.JPG",
+    "fileName": "DSC00117.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -840,7 +840,7 @@
     "longitude": -0.07035333333333334
   },
   {
-    "file": "DSC00132.JPG",
+    "fileName": "DSC00132.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -945,7 +945,7 @@
     "longitude": -0.072625
   },
   {
-    "file": "DSC00143.JPG",
+    "fileName": "DSC00143.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -1050,7 +1050,7 @@
     "longitude": -0.076435
   },
   {
-    "file": "DSC00144.JPG",
+    "fileName": "DSC00144.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -1155,7 +1155,7 @@
     "longitude": -0.07654166666666666
   },
   {
-    "file": "DSC00159.JPG",
+    "fileName": "DSC00159.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -1260,7 +1260,7 @@
     "longitude": -0.08344333333333333
   },
   {
-    "file": "DSC00162.JPG",
+    "fileName": "DSC00162.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -1365,7 +1365,7 @@
     "longitude": -0.07457166666666666
   },
   {
-    "file": "DSC00168.JPG",
+    "fileName": "DSC00168.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -1470,7 +1470,7 @@
     "longitude": -0.074445
   },
   {
-    "file": "DSC00186.JPG",
+    "fileName": "DSC00186.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -1575,7 +1575,7 @@
     "longitude": -0.07063166666666666
   },
   {
-    "file": "DSC00190.JPG",
+    "fileName": "DSC00190.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -1680,7 +1680,7 @@
     "longitude": -0.06982333333333333
   },
   {
-    "file": "DSC00198.JPG",
+    "fileName": "DSC00198.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -1785,7 +1785,7 @@
     "longitude": -0.06783333333333333
   },
   {
-    "file": "DSC00212.JPG",
+    "fileName": "DSC00212.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -1890,7 +1890,7 @@
     "longitude": -0.06363
   },
   {
-    "file": "DSC00214.JPG",
+    "fileName": "DSC00214.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -1995,7 +1995,7 @@
     "longitude": -0.06365
   },
   {
-    "file": "DSC00215.JPG",
+    "fileName": "DSC00215.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -2100,7 +2100,7 @@
     "longitude": -0.0636213888888889
   },
   {
-    "file": "DSC00229.JPG",
+    "fileName": "DSC00229.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -2205,7 +2205,7 @@
     "longitude": -0.061193055555555556
   },
   {
-    "file": "DSC00230.JPG",
+    "fileName": "DSC00230.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -2310,7 +2310,7 @@
     "longitude": -0.061145000000000005
   },
   {
-    "file": "DSC00242.JPG",
+    "fileName": "DSC00242.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -2415,7 +2415,7 @@
     "longitude": -0.06042638888888889
   },
   {
-    "file": "DSC00263.JPG",
+    "fileName": "DSC00263.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -2520,7 +2520,7 @@
     "longitude": -0.06075138888888889
   },
   {
-    "file": "DSC00292.JPG",
+    "fileName": "DSC00292.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -2625,7 +2625,7 @@
     "longitude": -0.057391388888888895
   },
   {
-    "file": "DSC00298.JPG",
+    "fileName": "DSC00298.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -2730,7 +2730,7 @@
     "longitude": -0.056898055555555556
   },
   {
-    "file": "DSC00350.JPG",
+    "fileName": "DSC00350.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -2835,7 +2835,7 @@
     "longitude": -0.05367638888888889
   },
   {
-    "file": "DSC00355.JPG",
+    "fileName": "DSC00355.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -2940,7 +2940,7 @@
     "longitude": -0.058845
   },
   {
-    "file": "DSC00363.JPG",
+    "fileName": "DSC00363.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -3045,7 +3045,7 @@
     "longitude": -0.07290166666666667
   },
   {
-    "file": "DSC00364.JPG",
+    "fileName": "DSC00364.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -3150,7 +3150,7 @@
     "longitude": -0.07296166666666666
   },
   {
-    "file": "DSC00367.JPG",
+    "fileName": "DSC00367.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -3255,7 +3255,7 @@
     "longitude": -0.07552333333333333
   },
   {
-    "file": "DSC00371.JPG",
+    "fileName": "DSC00371.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -3360,7 +3360,7 @@
     "longitude": -0.079535
   },
   {
-    "file": "DSC00376.JPG",
+    "fileName": "DSC00376.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -3465,7 +3465,7 @@
     "longitude": -0.07976166666666666
   },
   {
-    "file": "DSC00379.JPG",
+    "fileName": "DSC00379.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -3570,7 +3570,7 @@
     "longitude": -0.08214333333333333
   },
   {
-    "file": "DSC00392.JPG",
+    "fileName": "DSC00392.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -3675,7 +3675,7 @@
     "longitude": -0.08748
   },
   {
-    "file": "DSC00407.JPG",
+    "fileName": "DSC00407.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -3780,7 +3780,7 @@
     "longitude": -0.09160472222222221
   },
   {
-    "file": "DSC00439.JPG",
+    "fileName": "DSC00439.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -3885,7 +3885,7 @@
     "longitude": -0.09317
   },
   {
-    "file": "DSC00454.JPG",
+    "fileName": "DSC00454.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -3990,7 +3990,7 @@
     "longitude": -0.08029
   },
   {
-    "file": "DSC00488.JPG",
+    "fileName": "DSC00488.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -4095,7 +4095,7 @@
     "longitude": -0.0523
   },
   {
-    "file": "DSC00494.JPG",
+    "fileName": "DSC00494.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -4200,7 +4200,7 @@
     "longitude": -0.05350305555555556
   },
   {
-    "file": "DSC00497.JPG",
+    "fileName": "DSC00497.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -4305,7 +4305,7 @@
     "longitude": -0.05476305555555556
   },
   {
-    "file": "DSC00506.JPG",
+    "fileName": "DSC00506.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -4410,7 +4410,7 @@
     "longitude": -0.05471
   },
   {
-    "file": "DSC00515.JPG",
+    "fileName": "DSC00515.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -4515,7 +4515,7 @@
     "longitude": -0.04790833333333333
   },
   {
-    "file": "DSC00545.JPG",
+    "fileName": "DSC00545.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -4620,7 +4620,7 @@
     "longitude": -0.058875000000000004
   },
   {
-    "file": "DSC00551.JPG",
+    "fileName": "DSC00551.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -4725,7 +4725,7 @@
     "longitude": -0.05942638888888889
   },
   {
-    "file": "DSC00554.JPG",
+    "fileName": "DSC00554.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -4830,7 +4830,7 @@
     "longitude": -0.059645000000000004
   },
   {
-    "file": "DSC00559.JPG",
+    "fileName": "DSC00559.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -4935,7 +4935,7 @@
     "longitude": -0.060235000000000004
   },
   {
-    "file": "DSC00560.JPG",
+    "fileName": "DSC00560.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -5040,7 +5040,7 @@
     "longitude": -0.060235000000000004
   },
   {
-    "file": "DSC00564.JPG",
+    "fileName": "DSC00564.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -5145,7 +5145,7 @@
     "longitude": -0.0613
   },
   {
-    "file": "DSC00567.JPG",
+    "fileName": "DSC00567.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -5250,7 +5250,7 @@
     "longitude": -0.06177305555555556
   },
   {
-    "file": "DSC00570.JPG",
+    "fileName": "DSC00570.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -5355,7 +5355,7 @@
     "longitude": -0.061886388888888894
   },
   {
-    "file": "DSC00589.JPG",
+    "fileName": "DSC00589.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -5460,7 +5460,7 @@
     "longitude": -0.042165
   },
   {
-    "file": "DSC00600.JPG",
+    "fileName": "DSC00600.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -5565,7 +5565,7 @@
     "longitude": -0.04120638888888889
   },
   {
-    "file": "DSC00615.JPG",
+    "fileName": "DSC00615.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -5670,7 +5670,7 @@
     "longitude": -0.041174722222222224
   },
   {
-    "file": "DSC00620.JPG",
+    "fileName": "DSC00620.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -5775,7 +5775,7 @@
     "longitude": -0.041453333333333335
   },
   {
-    "file": "DSC00631.JPG",
+    "fileName": "DSC00631.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -5880,7 +5880,7 @@
     "longitude": -0.0416
   },
   {
-    "file": "DSC00656.JPG",
+    "fileName": "DSC00656.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -5985,7 +5985,7 @@
     "longitude": -0.06077305555555556
   },
   {
-    "file": "DSC00660.JPG",
+    "fileName": "DSC00660.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -6090,7 +6090,7 @@
     "longitude": -0.063195
   },
   {
-    "file": "DSC00663.JPG",
+    "fileName": "DSC00663.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -6195,7 +6195,7 @@
     "longitude": -0.06382472222222223
   },
   {
-    "file": "DSC00672.JPG",
+    "fileName": "DSC00672.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -6300,7 +6300,7 @@
     "longitude": -0.0664113888888889
   },
   {
-    "file": "DSC00677.JPG",
+    "fileName": "DSC00677.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -6405,7 +6405,7 @@
     "longitude": -0.06382638888888889
   },
   {
-    "file": "DSC00688.JPG",
+    "fileName": "DSC00688.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -6510,7 +6510,7 @@
     "longitude": -0.06271138888888889
   },
   {
-    "file": "DSC00694.JPG",
+    "fileName": "DSC00694.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -6615,7 +6615,7 @@
     "longitude": -0.06703666666666666
   },
   {
-    "file": "DSC00696.JPG",
+    "fileName": "DSC00696.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -6720,7 +6720,7 @@
     "longitude": -0.06703666666666666
   },
   {
-    "file": "DSC00708.JPG",
+    "fileName": "DSC00708.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -6825,7 +6825,7 @@
     "longitude": -0.06703666666666666
   },
   {
-    "file": "DSC00722.JPG",
+    "fileName": "DSC00722.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -6930,7 +6930,7 @@
     "longitude": -0.07801833333333333
   },
   {
-    "file": "DSC00736.JPG",
+    "fileName": "DSC00736.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -7035,7 +7035,7 @@
     "longitude": -0.08109
   },
   {
-    "file": "DSC00743.JPG",
+    "fileName": "DSC00743.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -7140,7 +7140,7 @@
     "longitude": -0.08179
   },
   {
-    "file": "DSC00766.JPG",
+    "fileName": "DSC00766.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -7245,7 +7245,7 @@
     "longitude": -0.09004138888888888
   },
   {
-    "file": "DSC00767.JPG",
+    "fileName": "DSC00767.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -7350,7 +7350,7 @@
     "longitude": -0.09007333333333332
   },
   {
-    "file": "DSC00772.JPG",
+    "fileName": "DSC00772.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -7455,7 +7455,7 @@
     "longitude": -0.09280999999999999
   },
   {
-    "file": "DSC00777.JPG",
+    "fileName": "DSC00777.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -7560,7 +7560,7 @@
     "longitude": -0.08072
   },
   {
-    "file": "DSC00789.JPG",
+    "fileName": "DSC00789.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -7665,7 +7665,7 @@
     "longitude": -0.0658713888888889
   },
   {
-    "file": "DSC00804.JPG",
+    "fileName": "DSC00804.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
@@ -7771,7 +7771,7 @@
     "longitude": -0.07499472222222223
   },
   {
-    "file": "DSC00807.JPG",
+    "fileName": "DSC00807.JPG",
     "Make": "SONY",
     "Model": "DSC-HX5V",
     "Orientation": "Horizontal (normal)",
