@@ -1,40 +1,49 @@
-export default function setupMusicRestRoutes(app, db) {
+export default function setupPdfRestRoutes(app, db) {
 
-  app.get('/api/music-search/:field/:searchValue', async (req, res) => {
+  app.get('/api/pdf-search/:field/:searchValue', async (req, res) => {
     // get field and searhValue from the request parameters
-    const { field, searchValue } = req.params;
-    // check that field is a valid field, if not do nothing
-    if (!['title', 'author', 'creator', 'keywords','description' ].includes(field)) {
-      res.json({ error: 'Invalid field name!' });
+    let { field, searchValue } = req.params;
+    // check that field is a valid field, if not do thing
+    let validFields = ['title', 'author', 'creator', 'keywords', 'subject', 'description'];
+    if (!validFields.includes(field)) {
+      res.status(400).json({ error: 'Ogiltigt sökfält!' });
       return;
     }
-    // run the db query as a prepared statement
-    const [result] = await db.execute(`
-    SELECT fileName,
-  COALESCE(
-    metadata->>'$.info.Title',
-    metadata->>'$.xmp.title'
-  ) AS title,
-  metadata->>'$.info.Author'  AS author,
-  metadata->>'$.info.Creator' AS creator,
-  metadata->>'$.xmp.keywords' AS keywords,
-  metadata->>'$.xmp.description' AS description,
-  metadata->>'$.file' AS originalFileName
-  FROM pdfs
-  WHERE LOWER(metadata->>'$.info.${field}' && '$.xmp.${field}' ) LIKE LOWER(?)
-  `, ['%' + searchValue + '%']
-    );
+    // Mappa fält till rätt JSON-paths i MySQL
+    let fieldMap = {
+      // COALESCE(a, b) returnerar det första icke-null värdet mellan a och b
+      title: `COALESCE(metadata->>'$.info.Title', metadata->>'$.xmp.title')`,
+      author: `metadata->>'$.info.Author'`,
+      creator: `COALESCE(metadata->>'$.info.Creator', metadata->>'$.xmp.creator')`,
+      keywords: `COALESCE(metadata->>'$.xmp.keywords', metadata->>'$.xmp.keywords')`,
+      subject: `COALESCE(metadata->>'$.info.Subject', metadata->>'$.xmp.subject')`,
+      description: `metadata->>'$.xmp.description'`
+    };
+
+    let fieldExpression = fieldMap[field];
+    // Kör sökningen
+    let [result] = await db.execute(`
+      SELECT 
+        id,
+        fileName,
+        COALESCE(metadata->>'$.info.Title', metadata->>'$.xmp.title') AS title,
+        metadata->>'$.info.Author' AS author,
+        COALESCE(metadata->>'$.info.Creator', metadata->>'$.xmp.creator') AS creator,
+        COALESCE(metadata->>'$.xmp.keywords', metadata->>'$.xmp.keywords') AS keywords,
+        COALESCE(metadata->>'$.info.Subject', metadata->>'$.xmp.subject') AS subject,
+        metadata->>'$.xmp.description' AS description
+      FROM pdfs
+      WHERE LOWER(${fieldExpression}) LIKE LOWER(?)
+    `, [`%${searchValue}%`]);
+
     // return the result as json
     res.json(result);
   });
 
-  // get all metadata for a single track (by id)
+  // Hämtar all metadata för en viss PDF via id
   app.get('/api/pdf-all-meta/:id', async (req, res) => {
-    const { id } = req.params;
-    let [result] = await db.execute(`
-    SELECT * FROM pdfs WHERE id = ?
-  `, [id]);
-    res.json(result);
+    let { id } = req.params;
+    let [result] = await db.execute(`SELECT * FROM pdfs WHERE id = ?`, [id]);
+    res.json(result[0] || {});
   });
-
 }

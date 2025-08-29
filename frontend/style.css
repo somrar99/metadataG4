@@ -15,7 +15,7 @@ body {
 }
 
 header {
-  background-color: #2f5703;
+  background-color: rgba(138, 31, 180, 0.9);
   /* text-color */
   color: #fff;
 
@@ -55,7 +55,7 @@ main {
 }
 
 footer {
-  background-color: #2f5703;
+  background-color: rgba(138, 31, 180, 0.9);
   color: #fff;
   padding: 20px;
   text-align: center;
@@ -116,3 +116,25 @@ label {
   display: block;
   margin: 20px 0;
 }
+
+.pdf-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1em;
+  margin-bottom: 1.5em;
+  background-color: #f9f9f9;
+}
+
+.pdf-title {
+  font-size: 1.4em;
+  color: #004b97;
+  margin-bottom: 0.3em;
+}
+
+.pdf-actions {
+  margin-top: 1em;
+}
+
+
+
+
