@@ -1,3 +1,4 @@
+/*
 // Grab the input field firstName
 let inputField = document.querySelector('input[name="firstName"]');
 // Listen to when the user types a character in the field
@@ -32,3 +33,4 @@ inputField.addEventListener('keyup', async () => {
   // our new html (the data converted from json)
   main.innerHTML = html;
 });
+*/
