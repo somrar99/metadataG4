@@ -4,7 +4,7 @@ export default function setupPdfRestRoutes(app, db) {
     // get field and searhValue from the request parameters
     let { field, searchValue } = req.params;
     // check that field is a valid field, if not do thing
-    let validFields = ['title', 'author', 'creator', 'keywords', 'subject', 'description'];
+    let validFields = ['title', 'author', 'creator', 'keywords', 'subject', 'description', 'text'];
     if (!validFields.includes(field)) {
       res.status(400).json({ error: 'Ogiltigt sökfält!' });
       return;
@@ -17,7 +17,8 @@ export default function setupPdfRestRoutes(app, db) {
       creator: `COALESCE(metadata->>'$.info.Creator', metadata->>'$.xmp.creator')`,
       keywords: `COALESCE(metadata->>'$.xmp.keywords', metadata->>'$.xmp.keywords')`,
       subject: `COALESCE(metadata->>'$.info.Subject', metadata->>'$.xmp.subject')`,
-      description: `metadata->>'$.xmp.description'`
+      description: `metadata->>'$.xmp.description'`,
+      text: `metadata->>'$.text'`,
     };
 
     let fieldExpression = fieldMap[field];
@@ -31,7 +32,8 @@ export default function setupPdfRestRoutes(app, db) {
         COALESCE(metadata->>'$.info.Creator', metadata->>'$.xmp.creator') AS creator,
         COALESCE(metadata->>'$.xmp.keywords', metadata->>'$.xmp.keywords') AS keywords,
         COALESCE(metadata->>'$.info.Subject', metadata->>'$.xmp.subject') AS subject,
-        metadata->>'$.xmp.description' AS description
+        metadata->>'$.xmp.description' AS description,
+        metadata->>'$.text' AS text
       FROM pdfs
       WHERE LOWER(${fieldExpression}) LIKE LOWER(?)
     `, [`%${searchValue}%`]);

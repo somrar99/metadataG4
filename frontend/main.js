@@ -34,3 +34,50 @@ inputField.addEventListener('keyup', async () => {
   main.innerHTML = html;
 });
 */
+
+
+import { startPageContent } from './start-page.js';
+import { pdfSearchPageContent } from './pdf-search.js';
+//import { musicSearchPageContent } from './music-search.js';
+//import { jpgSearchPageContent } from './jpg-search.js';
+//import { pptSearchPageContent } from './ppt-search.js';
+import { omOssPageContent } from './om-oss-page.js';
+
+// Click on menu link
+document.body.addEventListener('click', event => {
+  let navLink = event.target.closest('header nav a');
+  if (!navLink) { return; }
+  // don't try to follow the link in the a tag
+  event.preventDefault();
+  // read the text in the link
+  let linkText = navLink.textContent;
+  // show correct content depending on menu choice
+  showContent(linkText);
+});
+
+// Function to show page content
+function showContent(label) {
+  let content;
+  if (label === 'Start') {
+    content = startPageContent();
+  }
+  else if (label === 'Sök PDF') {
+    content = pdfSearchPageContent();
+  }
+  else if (label === 'Sök Musik') {
+    content = musicSearchPageContent();
+  }
+  else if (label === 'Sök Photo') {
+    content = jpgSearchPageContent();
+  }
+  else if (label === 'Sök Power point') {
+    content = pptSearchPageContent();
+  }
+  else if (label === 'Om oss') {
+    content = omOssPageContent();
+  }
+  document.querySelector('main').innerHTML = content;
+}
+
+// When the page loads
+showContent('Start');
