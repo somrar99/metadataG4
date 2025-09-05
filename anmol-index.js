@@ -1,4 +1,4 @@
-import express from 'express';
+/*import express from 'express';
 import mysql from 'mysql2/promise';
 import dbCredentials from './db-credentials.js';
 
@@ -43,3 +43,4 @@ app.get('/api/music-all-meta/:id', async (req, res) => {
 
 // Start the web server
 app.listen(3010, () => console.log('Listening on http://localhost:3010'));
+*/

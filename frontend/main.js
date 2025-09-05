@@ -38,7 +38,7 @@ inputField.addEventListener('keyup', async () => {
 
 import { startPageContent } from './start-page.js';
 import { pdfSearchPageContent } from './pdf-search.js';
-//import { musicSearchPageContent } from './music-search.js';
+import { musicSearchPageContent } from './music-search.js';
 //import { jpgSearchPageContent } from './jpg-search.js';
 //import { pptSearchPageContent } from './ppt-search.js';
 import { omOssPageContent } from './om-oss-page.js';
