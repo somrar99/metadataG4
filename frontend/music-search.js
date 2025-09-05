@@ -1,4 +1,4 @@
-import { startPageContent } from './start-page.js';
+//import { startPageContent } from './start-page.js';
 import { musicSearchPageContent } from './music-search.js';
 
 // Click on menu link
