@@ -58,7 +58,7 @@ app.get('/api/metadata', async (_request, response) => {
   // Save the json as a file
   // (write json to the file metadata.json
   // using character encoding utf-8)
-  fs.writeFileSync('./pdf-metadata.json', json, 'utf-8');
+  //fs.writeFileSync('./pdf-metadata.json', json, 'utf-8');
 
 
   // Send the metadata as a response to the request (to our web browser)
