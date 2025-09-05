@@ -75,16 +75,29 @@ main {
 }
 
 h1,
-h2,
+
+/* Stil för alla H2-element inuti <main> */
+main h2 {
+  font-family: 'Roboto';
+  margin: 0;
+  /* Klipper av text som är för lång och lägger till "..." */
+  white-space: nowrap; /* Förhindra radbrytning */
+  overflow: hidden; /* Dölj text som inte får plats */
+  text-overflow: ellipsis; /* Visa en ellips för klippt text */
+}
+
 h3,
 h4 {
   font-family: 'Roboto';
   margin: 0;
 }
 
-p {
+/* Stil för alla P-element inuti <main> */
+main p {
   margin: 0;
   margin-bottom: 12px;
+  /* Låter långa ord brytas till en ny rad */
+  word-wrap: break-word;
 }
 
 input[type="text"] {
