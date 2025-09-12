@@ -12,8 +12,11 @@ const db = await mysql.createConnection(dbCredentials);
 // create a web server - app
 const app = express();
 
-// add rest routes for music search
+// add rest routes for pdf search
 setupPdfRestRoutes(app, db);
+
+// add rest routes for music search
+setupMusicRestRoutes(app, db);
 
 // Serve files from the frontend folder
 app.use(express.static('frontend'));

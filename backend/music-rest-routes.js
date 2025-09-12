@@ -1,6 +1,7 @@
 export default function setupMusicRestRoutes(app, db) {
 
   app.get('/api/music-search/:field/:searchValue', async (req, res) => {
+
     // get field and searhValue from the request parameters
     const { field, searchValue } = req.params;
     // check that field is a valid field, if not do nothing
