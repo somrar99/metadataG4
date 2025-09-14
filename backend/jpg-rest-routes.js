@@ -1,91 +1,104 @@
-/* tilläga i index.js:
+// backend/jpg-rest-routes.js
+// Definierar REST-rutter för bildmetadata i tabellen `images`.
+// Endpoints: lista bilder, hämta metadata per id, samt söka på utvalda fält.
 
-"
-import setupImagesRestRoutes from './backend/images-rest-routes.js';
+export function setupJpgRestRoutes(app, db) {
 
-// connect to db
-const db = await mysql.createConnection(dbCredentials);
-
-// create a web server - app
-const app = express();
-
-// add rest routes for music search
-setupImagesRestRoutes(app, db);
-"
-
-*/
-
-
-
-// backend/images-rest-routes.js
-// Defines REST routes for working with image metadata stored in the `images` table.
-// It exposes three endpoints: list images, get metadata by id, and search by a specific field.
-
-export default function setupImagesRestRoutes(app, db) {
-  // GET /api/images — return id and fileName for all images
+  // GET /api/images — returnera id och fileName för ett urval av bilder
   app.get('/api/images', async (req, res) => {
     try {
       const sql = `
-        SELECT id,
-               JSON_UNQUOTE(JSON_EXTRACT(metadata, '$.fileName')) AS fileName
+        SELECT
+          id,
+          JSON_UNQUOTE(JSON_EXTRACT(metadata, '$.fileName')) AS fileName
         FROM images
+        ORDER BY id DESC
+        LIMIT 200
       `;
       const [rows] = await db.execute(sql);
       res.json(rows);
     } catch (err) {
-      console.error('Failed to fetch images list:', err);
+      console.error('GET /api/images failed:', err);
       res.status(500).json({ error: 'Internal server error' });
     }
   });
 
-  // GET /api/images/:id — return full metadata JSON for the given image id
-  app.get('/api/images/:id', async (req, res) => {
-    const { id } = req.params;
-    try {
-      const [rows] = await db.execute(
-        'SELECT metadata FROM images WHERE id = ?',
-        [id]
-      );
-      if (rows.length === 0) {
-        return res.status(404).json({ error: 'Image not found' });
-      }
-      const metadata = JSON.parse(rows[0].metadata);
-      res.json(metadata);
-    } catch (err) {
-      console.error('Failed to fetch image metadata:', err);
-      res.status(500).json({ error: 'Internal server error' });
-    }
-  });
+  // Whitelist + mappning av sökbara fält till korrekta JSON-paths
+  // Justera dessa nycklar efter hur ni faktiskt skriver metadata i extract-steget
+  const fieldMap = {
+    fileName: '$.fileName',                 // filnamn
+    make: '$.Make',                         // EXIF kameramärke
+    model: '$.Model',                       // EXIF kameramodell
+    iso: '$.ISO',                           // EXIF ISO
+    dateTimeOriginal: '$.DateTimeOriginal', // EXIF fotodatum
+    latitude: '$.latitude',                 // latitud (om finns)
+    longitude: '$.longitude'                // longitud (om finns)
+  };
 
-  // List of allowed fields for searching. Extend this array if needed.
-  const allowedFields = [
-    'fileName',
-    'dateTaken',
-    'cameraMake',
-    'cameraModel',
-    'latitude',
-    'longitude'
-  ];
-
-  // GET /api/search/:field/:value — search by a given metadata field and value
-  app.get('/api/search/:field/:value', async (req, res) => {
+  // ✅ Lägg sök-rutter FÖRE :id-rutten för att undvika krock
+  // GET /api/images/search/:field/:value — sök på tillåtet fält med LIKE
+  app.get('/api/images/search/:field/:value', async (req, res) => {
     const { field, value } = req.params;
-    if (!allowedFields.includes(field)) {
-      return res
-        .status(400)
-        .json({ error: `Unsupported search field: ${field}` });
-    }
+    const jsonPath = fieldMap[field];
+    if (!jsonPath) return res.status(400).json({ error: `Unsupported search field: ${field}` });
+
     try {
       const sql = `
-        SELECT id,
-               JSON_UNQUOTE(JSON_EXTRACT(metadata, '$.fileName')) AS fileName
+        SELECT
+          id,
+          JSON_UNQUOTE(JSON_EXTRACT(metadata, '$.fileName')) AS fileName
         FROM images
-        WHERE JSON_UNQUOTE(JSON_EXTRACT(metadata, '$.${field}')) LIKE ?
+        WHERE JSON_UNQUOTE(JSON_EXTRACT(metadata, ?)) LIKE ?
+        ORDER BY id DESC
+        LIMIT 200
       `;
-      const [rows] = await db.execute(sql, [`%${value}%`]);
+      const [rows] = await db.execute(sql, [jsonPath, `%${value}%`]);
       res.json(rows);
     } catch (err) {
-      console.error('Failed to search images:', err);
+      console.error('GET /api/images/search/:field/:value failed:', err);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+  // GET /api/images/search?field=fileName&value=DSC — query-variant
+  app.get('/api/images/search', async (req, res) => {
+    const field = req.query.field || 'fileName';
+    const value = req.query.value || '';
+    const jsonPath = fieldMap[field];
+    if (!jsonPath) return res.status(400).json({ error: `Unsupported search field: ${field}` });
+
+    try {
+      const sql = `
+        SELECT
+          id,
+          JSON_UNQUOTE(JSON_EXTRACT(metadata, '$.fileName')) AS fileName
+        FROM images
+        WHERE JSON_UNQUOTE(JSON_EXTRACT(metadata, ?)) LIKE ?
+        ORDER BY id DESC
+        LIMIT 200
+      `;
+      const [rows] = await db.execute(sql, [jsonPath, `%${value}%`]);
+      res.json(rows);
+    } catch (err) {
+      console.error('GET /api/images/search (query) failed:', err);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+  // GET /api/images/:id — returnera hela metadata-objektet för en bild
+  // 🔒 Begränsa :id till endast siffror för att inte fånga /search
+  app.get('/api/images/:id(\\d+)', async (req, res) => {
+    const { id } = req.params;
+    try {
+      const [rows] = await db.execute('SELECT metadata FROM images WHERE id = ?', [id]);
+      if (rows.length === 0) return res.status(404).json({ error: 'Image not found' });
+
+      // MySQL kan returnera JSON som objekt; parsa endast om det är en sträng
+      const meta = rows[0].metadata;
+      const metadata = (typeof meta === 'string') ? JSON.parse(meta) : meta;
+      res.json(metadata);
+    } catch (err) {
+      console.error('GET /api/images/:id failed:', err);
       res.status(500).json({ error: 'Internal server error' });
     }
   });

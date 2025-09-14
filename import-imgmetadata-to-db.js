@@ -1,70 +1,58 @@
 // import-imgmetadata-to-db.js
-// This script resets the `images` table and imports metadata for each
-// image from the `jpg-metadata.json` file. The table only has an auto-
-// incrementing id and a JSON column, which stores all metadata (including
-// the file name) as a single JSON document.
+// Detta skript återställer tabellen `images` och importerar metadata
+// för varje bild från `jpg-metadata.json`. Tabellen innehåller endast
+// en autoinkrementerande id och en JSON-kolumn som lagrar all metadata.
 
 import fs from 'fs/promises';
 import mysql from 'mysql2/promise';
 import dbcreds from './db-credentials.js';
 
 async function importMetadata() {
-  // Name of the table to drop and recreate
+  // Namnet på tabellen vi arbetar med
   const TABLE = 'images';
 
-  // Read and parse the metadata JSON file
+  // Läs in och tolka metadata från JSON-filen
   const jsonFile = './jpg-metadata.json';
   const jsonString = await fs.readFile(jsonFile, 'utf-8');
   const data = JSON.parse(jsonString);
 
-  // Connect to the database
+  // Skapa databasanslutning
   const db = await mysql.createConnection(dbcreds);
-  // Allow named placeholders if you need them later
   db.config.namedPlaceholders = true;
 
   try {
-    // Start a transaction
-    await db.beginTransaction();
-
-    // Disable foreign key checks during table drop/creation
-    await db.execute('SET FOREIGN_KEY_CHECKS = 0;');
-
-    // Drop old table if it exists
-    await db.execute(`DROP TABLE IF EXISTS \`${TABLE}\`;`);
-
-    // Create new table with only id and metadata columns
+    // Skapa tabellen om den inte finns, annars rensa den
     await db.execute(`
-      CREATE TABLE \`${TABLE}\` (
+      CREATE TABLE IF NOT EXISTS \`${TABLE}\` (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        metadata JSON NOT NULL
+        metadata JSON NOT NULL,
+        fileName VARCHAR(255) GENERATED ALWAYS AS (JSON_UNQUOTE(JSON_EXTRACT(metadata, '$.fileName'))) STORED,
+        INDEX idx_images_fileName (fileName)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     `);
 
-    // Re-enable foreign key checks
-    await db.execute('SET FOREIGN_KEY_CHECKS = 1;');
+    // Rensa tabellen (tar bort alla gamla rader)
+    await db.execute(`TRUNCATE TABLE \`${TABLE}\`;`);
 
-    // Prepared statement for inserting JSON metadata
+    // Förbered SQL-sats för att infoga metadata
     const insertSql = `INSERT INTO \`${TABLE}\` (metadata) VALUES (?)`;
 
-    // Insert each metadata record into the table
+    // Loop igenom och infoga varje rad från JSON-filen
     for (const item of data) {
-      // item already contains fileName and all other metadata fields
       await db.execute(insertSql, [JSON.stringify(item)]);
     }
 
-    // Commit the transaction
-    await db.commit();
-    console.log(`Imported ${data.length} records into the '${TABLE}' table.`);
+    console.log(`✅ Importerat ${data.length} rader till tabellen '${TABLE}'.`);
   } catch (err) {
-    // Roll back the transaction if something goes wrong
-    await db.rollback();
-    console.error('Error importing metadata:', err);
+    // Om något går fel loggas felet
+    console.error('❌ Fel vid import av metadata:', err);
   } finally {
-    // Close the database connection
+    // Stäng anslutningen
     await db.end();
   }
 }
 
-importMetadata().catch((err) => {
-  console.error('Unhandled error:', err);
+// Kör funktionen
+importMetadata().catch(err => {
+  console.error('❌ Ohanterat fel:', err);
 });

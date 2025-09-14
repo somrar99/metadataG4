@@ -3,7 +3,7 @@ import mysql from 'mysql2/promise';
 import dbCredentials from './db-credentials.js';
 import setupPdfRestRoutes from './backend/pdf-rest-routes.js';
 import setupMusicRestRoutes from './backend/music-rest-routes.js';
-//import setupJpgRestRoutes from './backend/jpg-rest-routes.js';
+import { setupJpgRestRoutes } from './backend/jpg-rest-routes.js';
 //import setupPptRestRoutes from './backend/ppt-rest-routes.js';
 
 // connect to db
@@ -17,6 +17,9 @@ setupPdfRestRoutes(app, db);
 
 // add rest routes for music search
 setupMusicRestRoutes(app, db);
+
+// add rest routes for photo search
+setupJpgRestRoutes(app, db); // foton
 
 // Serve files from the frontend folder
 app.use(express.static('frontend'));
