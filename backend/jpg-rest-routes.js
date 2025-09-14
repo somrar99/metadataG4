@@ -87,8 +87,15 @@ export function setupJpgRestRoutes(app, db) {
 
   // GET /api/images/:id — returnera hela metadata-objektet för en bild
   // 🔒 Begränsa :id till endast siffror för att inte fånga /search
-  app.get('/api/images/:id(\\d+)', async (req, res) => {
-    const { id } = req.params;
+  // Hämta metadata för en specifik bild baserat på id
+  // ...другие маршруты этого файла выше
+
+  // Måste ligga sist i filen så att den inte fångar /api/images/near, /api/images/has-gps, etc.
+  app.get('/api/images/:id', async (req, res) => {
+    const id = Number(req.params.id); // validera att det är ett tal
+    if (!Number.isFinite(id)) {
+      return res.status(400).json({ error: 'bad id' });
+    }
     try {
       const [rows] = await db.execute('SELECT metadata FROM images WHERE id = ?', [id]);
       if (rows.length === 0) return res.status(404).json({ error: 'Image not found' });
