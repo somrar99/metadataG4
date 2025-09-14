@@ -10,6 +10,8 @@ export function jpgGeoSearchPageContent() {
   return `
     <h1>Sök Photo (GEO)</h1>
     <p>Här kan du söka bland importerade bilder som har GPS-koordinater (JPEG/EXIF).</p>
+    <p>Exempel på latitud: 38.588128</p>
+    <p>Exempel på longitud: -0.090073</p>
 
     <div class="geo-form" style="display:grid;grid-template-columns:repeat(4, minmax(140px, 1fr));gap:.75rem;max-width:880px;align-items:end;">
       <label>
