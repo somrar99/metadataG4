@@ -40,6 +40,7 @@ import { startPageContent } from './start-page.js';
 import { pdfSearchPageContent } from './pdf-search.js';
 import { musicSearchPageContent } from './music-search.js';
 import { jpgSearchPageContent } from './jpg-search.js';
+import { jpgGeoSearchPageContent } from './jpg-geo-search.js';
 //import { pptSearchPageContent } from './ppt-search.js';
 import { omOssPageContent } from './om-oss-page.js';
 
@@ -69,6 +70,9 @@ function showContent(label) {
   }
   else if (label === 'Sök Photo') {
     content = jpgSearchPageContent();
+  }
+  else if (label === 'Sök Geo') {
+    content = jpgGeoSearchPageContent();
   }
   else if (label === 'Sök Power point') {
     content = pptSearchPageContent();
