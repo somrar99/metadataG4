@@ -24,19 +24,19 @@ export function setupJpgRestRoutes(app, db) {
   });
 
   // Whitelist + mappning av sökbara fält till korrekta JSON-paths
-  // Justera dessa nycklar efter hur ni faktiskt skriver metadata i extract-steget
   const fieldMap = {
-    fileName: '$.fileName',                 // filnamn
-    make: '$.Make',                         // EXIF kameramärke
-    model: '$.Model',                       // EXIF kameramodell
-    iso: '$.ISO',                           // EXIF ISO
+    file: '$.fileName',                  // alias
+    fileName: '$.fileName',              // filnamn
+    make: '$.Make',                      // EXIF kameramärke
+    model: '$.Model',                    // EXIF kameramodell
+    iso: '$.ISO',                        // EXIF ISO
     dateTimeOriginal: '$.DateTimeOriginal', // EXIF fotodatum
-    latitude: '$.latitude',                 // latitud (om finns)
-    longitude: '$.longitude'                // longitud (om finns)
+    latitude: '$.latitude',              // latitud (om finns)
+    longitude: '$.longitude'             // longitud (om finns)
   };
 
-  // ✅ Lägg sök-rutter FÖRE :id-rutten för att undvika krock
-  // GET /api/images/search/:field/:value — sök på tillåtet fält med LIKE
+  // ✅ Sök med path-parametrar
+  // GET /api/images/search/:field/:value
   app.get('/api/images/search/:field/:value', async (req, res) => {
     const { field, value } = req.params;
     const jsonPath = fieldMap[field];
@@ -48,7 +48,7 @@ export function setupJpgRestRoutes(app, db) {
           id,
           JSON_UNQUOTE(JSON_EXTRACT(metadata, '$.fileName')) AS fileName
         FROM images
-        WHERE JSON_UNQUOTE(JSON_EXTRACT(metadata, ?)) LIKE ?
+        WHERE LOWER(JSON_UNQUOTE(JSON_EXTRACT(metadata, ?))) LIKE LOWER(?)
         ORDER BY id DESC
         LIMIT 200
       `;
@@ -60,7 +60,8 @@ export function setupJpgRestRoutes(app, db) {
     }
   });
 
-  // GET /api/images/search?field=fileName&value=DSC — query-variant
+  // ✅ Query-variant
+  // GET /api/images/search?field=fileName&value=DSC
   app.get('/api/images/search', async (req, res) => {
     const field = req.query.field || 'fileName';
     const value = req.query.value || '';
@@ -73,7 +74,7 @@ export function setupJpgRestRoutes(app, db) {
           id,
           JSON_UNQUOTE(JSON_EXTRACT(metadata, '$.fileName')) AS fileName
         FROM images
-        WHERE JSON_UNQUOTE(JSON_EXTRACT(metadata, ?)) LIKE ?
+        WHERE LOWER(JSON_UNQUOTE(JSON_EXTRACT(metadata, ?))) LIKE LOWER(?)
         ORDER BY id DESC
         LIMIT 200
       `;
@@ -86,13 +87,8 @@ export function setupJpgRestRoutes(app, db) {
   });
 
   // GET /api/images/:id — returnera hela metadata-objektet för en bild
-  // 🔒 Begränsa :id till endast siffror för att inte fånga /search
-  // Hämta metadata för en specifik bild baserat på id
-  // ...другие маршруты этого файла выше
-
-  // Måste ligga sist i filen så att den inte fångar /api/images/near, /api/images/has-gps, etc.
   app.get('/api/images/:id', async (req, res) => {
-    const id = Number(req.params.id); // validera att det är ett tal
+    const id = Number(req.params.id);
     if (!Number.isFinite(id)) {
       return res.status(400).json({ error: 'bad id' });
     }
@@ -100,7 +96,6 @@ export function setupJpgRestRoutes(app, db) {
       const [rows] = await db.execute('SELECT metadata FROM images WHERE id = ?', [id]);
       if (rows.length === 0) return res.status(404).json({ error: 'Image not found' });
 
-      // MySQL kan returnera JSON som objekt; parsa endast om det är en sträng
       const meta = rows[0].metadata;
       const metadata = (typeof meta === 'string') ? JSON.parse(meta) : meta;
       res.json(metadata);

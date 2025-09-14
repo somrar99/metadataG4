@@ -6,6 +6,11 @@ export function jpgSearchPageContent() {
   return `
     <h1>Sök Photo</h1>
     <p>Här kan du söka bland importerade bilder (JPEG/EXIF).</p>
+    <p>Exempel på filnamn: DSC00042.JPG</p>
+    <p>Exempel på kameramärke: SONY</p>
+    <p>Exempel på kameramodell: DSC-HX5V</p>
+    <p>Exempel på ISO: 125</p>
+    <p>Exempel på fotodatum: 2010-07-10T09:49:25.000Z</p>
 
     <label for="jpg-meta-select">Sök på:</label>
     <select id="jpg-meta-select" name="jpg-meta-field">
